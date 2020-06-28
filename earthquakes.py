@@ -45,7 +45,7 @@ def main(output_file, min_strength):
         if alert not in ["green", "yellow", "orange", "red"]:
           alert = "green"
 
-        f.write('{0} {1} "{2}" color={3} align=Above\n'.format(lat, lon, mag, alert))
+        f.write('{:1.3f} {:1.3f} "{:3.1f}" color={} align=Above\n'.format(lat, lon, mag, alert))
 
 
 if __name__ == '__main__':
