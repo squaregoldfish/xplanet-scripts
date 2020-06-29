@@ -11,10 +11,23 @@ import json
 # min_strength will filter the earthquakes so that quakes with a magnitude
 #              less than this value will not be included
 
-# The URL for the USGS JSON - all quakes for the last 7 days
-URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+# The URL for the USGS JSON - pick which one you want
 
-# The main functio
+# All quakes for the past hour
+#URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
+
+# All quakes for the last day
+URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
+
+# All quakes for the last 7 days
+#URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+
+# All quakes for the last 30 days
+#URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
+
+##################################
+
+# The main function
 def main(output_file, min_strength):
 
   # Download the JSON from USGS
@@ -36,7 +49,7 @@ def main(output_file, min_strength):
 
       # Check the magnitude
       mag = quake["properties"]["mag"]
-      if mag >= min_strength:
+      if mag is not None and mag >= min_strength:
 
         # Extract details and write line to the output file
         lon = quake["geometry"]["coordinates"][0]
