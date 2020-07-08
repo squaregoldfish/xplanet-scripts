@@ -287,7 +287,7 @@ def main(output_file, min_strength):
   with open(output_file, 'w') as f:
 
     # Loop through each quake
-    for quake in data["features"]:
+    for quake in reversed(data["features"]):
 
       # Check the magnitude
       mag = quake["properties"]["mag"]
