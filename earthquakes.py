@@ -305,7 +305,7 @@ def main(output_file, min_strength):
         green = int(round(cdi_color[1] * 255))
         blue = int(round(cdi_color[2] * 255))
 
-        cdi_hex = '#{:02x}{:02x}{:02x}'.format(red, green, blue)
+        cdi_hex = '0x{:02x}{:02x}{:02x}'.format(red, green, blue)
 
         f.write('{:1.3f} {:1.3f} "{:3.1f}" color={} align=Above\n'.format(lat, lon, mag, cdi_hex))
 
